@@ -12,3 +12,7 @@ Repositório para entregas referente ao trabalho proposto em aula pela GSW.
 - [Conteúdo Sprint 0](https://github.com/tabathafroes/EngSoft2/tree/master/Sprint%200)
   - Organização da Equipe, Plano de Desenvolvimento de Software, Técnicas e Ferramentas aplicáveis, BPMN.
   - Levantemento de Requisitos (em forma de cards)
+- [Conteúdo Sprint 1](https://github.com/tabathafroes/EngSoft2/tree/master/Sprint%201)
+  - Arquitetura MVC
+  - Wireframes
+  - User Stories
