@@ -16,3 +16,11 @@ Repositório para entregas referente ao trabalho proposto em aula pela GSW.
   - Arquitetura MVC
   - Wireframes
   - User Stories
+- [Conteúdo Sprint 2](https://github.com/tabathafroes/EngSoft2/tree/master/Sprint%202)
+  - User Stories
+  - Wireframes
+  - Diagrama de Domínio
+  - Diagrama de Classes
+  - Estimativa de Esforço
+  - Cenários de Teste
+  - Entrega de funcionalidades implementadas
