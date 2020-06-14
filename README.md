@@ -31,4 +31,4 @@ Repositório para entregas referente ao trabalho proposto em aula pela GSW.
    - Diagrama de Classes (atualizado)
    - Estimativa de Esforço (não necessita de atualização)
    - Cenários de Teste (atualizado)
-   - Entrega de funcionalidades implementadas (atualizado)
+   - [Entrega de funcionalidades implementadas (atualizado)](https://github.com/tabathafroes/EngSoft2/tree/master/Software/JobsScreen-master)
