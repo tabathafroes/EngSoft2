@@ -24,3 +24,11 @@ Repositório para entregas referente ao trabalho proposto em aula pela GSW.
   - Estimativa de Esforço
   - Cenários de Teste
   - Entrega de funcionalidades implementadas
+ - [Conteúdo Sprint 3](https://github.com/tabathafroes/EngSoft2/tree/master/Sprint%203)
+   - User Stories (atualizado/Trello)
+   - Wireframes (atualizado)
+   - Diagrama de Domínio (atualizado)
+   - Diagrama de Classes (atualizado)
+   - Estimativa de Esforço (não necessita de atualização)
+   - Cenários de Teste (atualizado)
+   - Entrega de funcionalidades implementadas (atualizado)
