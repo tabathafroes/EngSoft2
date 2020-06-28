@@ -3,8 +3,7 @@ import ReactDOM from 'react-dom';
 import { Route, BrowserRouter as Router } from 'react-router-dom'
 import App from './App'
 import Welcome from './Componets/Welcome'
-import Header from './Componets/header'
-
+import Header from './Componets/Header/header'
 
 ReactDOM.render(
   <React.StrictMode>
