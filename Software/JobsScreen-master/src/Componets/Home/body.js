@@ -1,4 +1,5 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
+
 import ShareIcon from '@material-ui/icons/Share';
 import { makeStyles } from '@material-ui/core/styles'; 
 import Paper from '@material-ui/core/Paper';
@@ -11,6 +12,9 @@ import TableRow from '@material-ui/core/TableRow';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import image from '../banner-01.jpg'
+
+import api from '../../services/api'
+
 
 const useStyles = makeStyles({
   root: {
@@ -44,27 +48,22 @@ const columns = [
     },
   ];
   
-const createData = (city, position, segment) => {
-    return { city, position, segment };
-  }
-  
-  const rows = [
-    createData('São José dos Campos', 'Analista de Sistemas Junior', "TI"),
-    createData('São José dos Campos', 'Engenheiro de Softwere', "TI"),
-    createData('São José dos Campos', 'Assistente Administrativa', "Administracao"),
-    createData('São José dos Campos', 'Estagiario de TI', "TI"),
-    createData('São José dos Campos', 'Producao de video', "Audio visual"),
-    createData('São José dos Campos', 'Editor de Imagem', "Audio visual"),
-    createData('São José dos Campos', 'Engenheiro da Computacao', "TI"),
-    createData('São José dos Campos', 'Analista de Sistemas Senior', "TI"),
-    createData('São José dos Campos', 'Desenvolvedor Front End', "TI"),
-    createData('São José dos Campos', 'Desenvolvedor Back End', "TI"),
-    createData('São José dos Campos', 'Desenvolvedor FullStack', "TI"),
-  ];
 
-const Body = () => {
+
+export default () => {
     const classes = useStyles();
+    const [rows, setRows] = useState()
+    
+    useEffect(() => {
+      createData();
+    }, [])
 
+    const createData = async () => {
+      await api.get('http://localhost:5000/api/jobs')
+        .then(r => {
+          setRows(r.data.jobs)  
+        })
+    }
      return(
         <>
          <div >
@@ -72,14 +71,15 @@ const Body = () => {
          </div>
          <div style={{padding: "50px 100px"}}>
             <select/>
-            <Tables classes={classes} />
+            <Tables classes={classes} rows={rows}/>
          </div>
         </> 
      )
 };
 
-const Tables = ({classes}) =>
+const Tables = ({classes, rows}) =>
   { 
+    if(rows){ 
       return (
       <Paper className={classes.root}>
         <TableContainer className={classes.container}>
@@ -98,6 +98,7 @@ const Tables = ({classes}) =>
               </TableRow>
             </TableHead>
             <TableBody>
+              
               {rows.map((row) => {
                 return (
                   <TableRow hover role="checkbox" tabIndex={-1} key={row.position}>
@@ -118,6 +119,9 @@ const Tables = ({classes}) =>
           </Table>
         </TableContainer>
       </Paper>
+      )}
+      return(
+        <span>Carregando...</span>
       )
     }
 
@@ -137,6 +141,4 @@ const LikeButton = () => {
 
 }
 
-
-export default Body;
 

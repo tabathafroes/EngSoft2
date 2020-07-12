@@ -1,13 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
+
 import { fade, makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
 import InputBase from '@material-ui/core/InputBase';
+import Menu from '@material-ui/core/Menu';
+import MenuItem from '@material-ui/core/MenuItem';
 
+import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
 
 import LogInButton from '../ActionButtons/LogInButton'
+
 
 const useStyles = makeStyles((theme) => ({
   grow: {
@@ -59,24 +64,72 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.up('md')]: {
       display: 'flex',
     },
+    nested: {
+      paddingLeft: theme.spacing(4),
+    },
   },
 }));
 
+
+
 const Header = () => {
+  const [anchorEl, setAnchorEl] = useState(null);
   const classes = useStyles();
 
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
   return (
     <div className={classes.grow}>
       <AppBar position="static">
         <Toolbar>
-        <IconButton
-            edge="start"
-            className={classes.menuButton}
-            color="inherit"
-            onClick={() => window.location.replace("/")}
-          >
-            Logo GSW
-          </IconButton>
+          {window.location.pathname.includes('/admin') && 
+            <div>
+              <IconButton
+                  edge="start"
+                  className={classes.menuButton}
+                  color="inherit"
+                  aria-controls="simple-menu"
+                  aria-haspopup="true"
+                  onClick={handleClick}
+                >
+                  <MenuIcon/>
+              </IconButton>
+              <Menu
+                  id="simple-menu"
+                  anchorEl={anchorEl}
+                  keepMounted
+                  open={Boolean(anchorEl)}
+                  onClose={handleClose}
+              >
+                 <MenuItem onClick={() =>{
+                   handleClose();
+                   window.location.replace("/admin/painel")
+                  }
+                  }>Painel</MenuItem>
+                 <MenuItem onClick={() =>{
+                   handleClose();
+                   window.location.replace("/admin/vagas")
+                  }
+                }>Vagas</MenuItem>
+                 <MenuItem onClick={handleClose}>Banco de talentos</MenuItem>
+                 <MenuItem onClick={() => {
+                   handleClose();
+                   window.location.replace("/admin/funcionarios")
+                  }
+                   }>Funcionários</MenuItem>
+                 <MenuItem onClick={handleClose}>Entrevistas</MenuItem>
+              </Menu>
+            </div>
+            }
+          <a style={{textDecoration:'none', color:'#ffff'}} href='/'>
+            Logo 
+          </a>
+          
           <div className={classes.search}>
             <div className={classes.searchIcon}>
               <SearchIcon />
@@ -92,11 +145,13 @@ const Header = () => {
           </div>
           <div className={classes.grow} />
           <div className={classes.section}>
+            {window.location.pathname === '/' &&
             <IconButton
               color="inherit"
             >
               <LogInButton type={'user'}/>
             </IconButton>
+            }
           </div>
         </Toolbar>
       </AppBar>
