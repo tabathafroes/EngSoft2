@@ -5,8 +5,11 @@ Repositório para entregas referente ao trabalho proposto em aula pela GSW.
 
 # Equipe
 - Scrum Master : Tábatha Fróes
+[Linkedin](www.linkedin.com/in/tabatha-froes)
 - Product Owner: Natália dos Reis Neves
+[Linkedin](www.linkedin.com/in/natalia-reis-neves)
 - Desenvolvedor: Yuri Rafael Balieiro Bortolanza
+[Linkedin](www.linkedin.com/in/yuri-balieiro)
 
 # Entregas
 - [Conteúdo Sprint 0](https://github.com/tabathafroes/EngSoft2/tree/master/Sprint%200)
